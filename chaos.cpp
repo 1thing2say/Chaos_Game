@@ -6,6 +6,8 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <chrono>
+#include <thread>
 #include "algo.h"
 
 //Make the code easier to type with "using namespace"
@@ -26,7 +28,7 @@ int main()
 	text.setFont(font);
 	text.setFillColor(sf::Color::White);
 	text.setCharacterSize(100);
-	if (!font.loadFromFile("SFCamera.ttf"))
+	if (!font.loadFromFile("font/SFCamera.ttf"))
 	{
 		cout << "Error" << endl;
 		return 1;

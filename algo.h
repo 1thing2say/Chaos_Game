@@ -22,7 +22,7 @@ void drawPoint(vector<Vector2f>& a, vector<Vector2f>& b, RenderWindow& w)
 	rect.setFillColor(Color::Magenta);
 	w.draw(rect);
 
-
+    this_thread::sleep_for(chrono::milliseconds(100));
 }
 
 #endif
