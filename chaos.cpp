@@ -18,6 +18,8 @@ int main()
 {
 	// Entropy element
 	srand(time(0));
+	// Variable to hold the size of the squares
+	double square_size = 4.0;
 	// Create a video mode object
 	VideoMode vm(1920, 1080);
 	// Create and open a window for the game
@@ -27,7 +29,7 @@ int main()
 	sf::Text text;
 	text.setFont(font);
 	text.setFillColor(sf::Color::White);
-	text.setCharacterSize(100);
+	text.setCharacterSize(50);
 	if (!font.loadFromFile("font/SFCamera.ttf"))
 	{
 		cout << "Error" << endl;
@@ -99,13 +101,13 @@ int main()
 		window.clear();
 		for(int i = 0; i < vertices.size(); i++)
 		{
-		    RectangleShape rect0(Vector2f(10,10));
+		    RectangleShape rect0(Vector2f(square_size, square_size));
 		    rect0.setPosition(Vector2f(vertices[i].x, vertices[i].y));
 		    rect0.setFillColor(Color::Blue);
 		    window.draw(rect0);
 			if (points.size() > 0) 
 			{
-			RectangleShape rect1(Vector2f(10,10));
+			RectangleShape rect1(Vector2f(square_size, square_size));
 		    rect1.setPosition(Vector2f(points[0].x, points[0].y));
 		    rect1.setFillColor(Color::Red);
 		    window.draw(rect1);
@@ -114,20 +116,18 @@ int main()
 			// Create text
 			if (vertices.size() < 3)
 			{
-				text.setString("Click on any three points");
+				text.setString("Click on any three points on the screen");
 			} else 
 			{
-				text.setString("Click on a fourth point");
+				text.setString("Click on a fourth point to start the algorithm");
 				if (points.size() > 0) text.setString("");
 			}
 			window.draw(text);
-			cout << "Vertices: " << vertices.size() << endl;
-			cout << "Points: " << points.size() << endl;
 
 			// Algorithm
 			if (points.size() > 0)
 			{
-			drawPoint(points, vertices, window);
+			drawPoint(points, vertices, window, square_size);
 			}
 		}
 		///TODO:  Draw points

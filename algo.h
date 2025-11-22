@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-void drawPoint(vector<Vector2f>& a, vector<Vector2f>& b, RenderWindow& w) 
+void drawPoint(vector<Vector2f>& a, vector<Vector2f>& b, RenderWindow& w, double size) 
 // a == points, b == verticies
 {
     cout << "Iteration: " << a.size() << endl;
@@ -17,12 +17,20 @@ void drawPoint(vector<Vector2f>& a, vector<Vector2f>& b, RenderWindow& w)
 
     // Then create and draw a new point in the midpoint
     a.push_back(Vector2f(x_coord, y_coord));
-    RectangleShape rect(Vector2f(10,10));
-	rect.setPosition(Vector2f(a.back().x, a.back().y));
-	rect.setFillColor(Color::Magenta);
-	w.draw(rect);
+    for (int i = 0; i < a.size(); i++)
+    {
+        RectangleShape rect(Vector2f(size, size));
+	    rect.setPosition(Vector2f(a[i].x, a[i].y));
+	    rect.setFillColor(Color::White);
+	    w.draw(rect);
+    }
 
-    this_thread::sleep_for(chrono::milliseconds(100));
+    // For debugging
+    cout << "Vertices: " << b.size() << endl;
+	cout << "Points: " << a.size() << endl;
+
+    // Uncomment to slow down algorithm
+    //this_thread::sleep_for(chrono::milliseconds(50));
 }
 
 #endif
