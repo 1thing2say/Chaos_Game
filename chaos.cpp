@@ -101,16 +101,19 @@ int main()
 		window.clear();
 		for(int i = 0; i < vertices.size(); i++)
 		{
-		    RectangleShape rect0(Vector2f(square_size, square_size));
-		    rect0.setPosition(Vector2f(vertices[i].x, vertices[i].y));
-		    rect0.setFillColor(Color::Blue);
-		    window.draw(rect0);
+			if (points.size() < 1)
+			{
+		    	RectangleShape rect0(Vector2f(square_size, square_size));
+		    	rect0.setPosition(Vector2f(vertices[i].x, vertices[i].y));
+		    	rect0.setFillColor(Color::Blue);
+		    	window.draw(rect0);
+			}
 			if (points.size() > 0) 
 			{
-			RectangleShape rect1(Vector2f(square_size, square_size));
-		    rect1.setPosition(Vector2f(points[0].x, points[0].y));
-		    rect1.setFillColor(Color::Red);
-		    window.draw(rect1);
+				RectangleShape rect1(Vector2f(square_size, square_size));
+		    	rect1.setPosition(Vector2f(points[0].x, points[0].y));
+		    	rect1.setFillColor(Color::Red);
+		    	window.draw(rect1);
 			}
 
 			// Create text
@@ -127,7 +130,7 @@ int main()
 			// Algorithm
 			if (points.size() > 0)
 			{
-			drawPoint(points, vertices, window, square_size);
+				drawPoint(points, vertices, window, square_size);
 			}
 		}
 		///TODO:  Draw points
