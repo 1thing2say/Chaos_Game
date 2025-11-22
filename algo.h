@@ -11,7 +11,7 @@ void drawPoint(vector<Vector2f>& a, vector<Vector2f>& b, RenderWindow& w, double
     int random = rand() % 3;
 
     // Pick a random vertex and calculate 
-    // the midpoint with the point.
+    // the midpoint with that point.
     unsigned int x_coord = (a.back().x + b[random].x) / 2;
     unsigned int y_coord = (a.back().y + b[random].y) / 2;
 
