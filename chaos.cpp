@@ -19,7 +19,7 @@ int main()
 	// Entropy element
 	srand(time(0));
 	// Variable to hold the size of the squares
-	double square_size = 2;
+	int square_size = 2;
 	// Create a video mode object
 	VideoMode vm(1920, 1080);
 	// Create and open a window for the game
